@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html
+    lang="en">
+
+<head>
+    <meta
+        charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Dice-Roll App</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url("bg3.png");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        #box{ 
+            height: 97vh;
+            width: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #btn{
+            background-color: #FF0000;
+            color: white; 
+            position:relative;
+            height: 60px;
+            width: 250px;
+            border-radius: 30px;
+            border: none;
+            font-size:40px;
+            font-weight: 900;
+            font-weight: bold;
+            margin-top: 0%;
+            box-shadow: -10px 5px 1px rgba(rgb(152, 240, 93), green, blue, alpha);
+            
+        }
+        h1{ 
+            margin-top: 1px;
+            font-size: 40px;
+            font-weight:bold;
+            font-family: sans-serif;
+            margin-bottom: 0%;
+        }
+        h2{
+            font-size:50px;
+            font-weight: 900;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 0%;
+            margin-top: 0%;
+            padding-top: 20px;
+            padding-bottom: 2px;
+            
+        }
+        @keyframes rollDice {
+        0%   { transform: rotate(0deg) translateY(0); }
+        50%  { transform: rotate(360deg) translateY(-50px); }
+        100% { transform: rotate(720deg) translateY(0); }
+        }
+
+img {
+  transition: all 0.5s ease;
+}
+
+        
+    </style>
+</head>
+
+<body>
+    <div id="box">
+    <h1>DICE GAME🎲</h1>
+     <h2>Click The Button to Start</h2>
+     <img src="general2.png" alt="" width="400px">
+     <button id="btn">START 🎲</button>
+    </div>
+</body>
+
+<script>
+ 
+
+    let btn=document.querySelector("button")
+    let heading=document.querySelector("h2")
+    let image=document.querySelector("img")
+    btn.addEventListener("click", ()=>{
+        let random= Math.ceil(Math.random()*6);
+        heading.textContent=random;
+
+         // Dice roll animation
+    image.style.animation = "rollDice 0.6s ease";
+    // Reset animation after complete
+    setTimeout(()=>{
+        image.style.animation = "";
+    },600);
+    if(random==1){
+            image.src="one.png";
+        }else if(random==2){
+            image.src="two.png";
+        }else if(random==3){
+            image.src="three.png";
+        }else if(random==4){
+            image.src="four.png";
+        }else if(random==5){
+            image.src="five.png";
+        }else if(random==6){
+            image.src="six.png";
+        }
+});
+
+    // btn.addEventListener("touchstart", ()=>{
+    //     let random= Math.ceil(Math.random()*6);
+    //     heading.textContent=random;
+
+    //      // Dice roll animation
+    // image.style.animation = "rollDice 0.6s ease";
+    
+    // // Reset animation after complete
+    // setTimeout(()=>{
+    //     image.style.animation = "";
+    // },600);
+
+        // if(random==1){
+        //     image.src="one.png";
+        // }else if(random==2){
+        //     image.src="two.png";
+        // }else if(random==3){
+        //     image.src="three.png";
+        // }else if(random==4){
+        //     image.src="four.png";
+        // }else if(random==5){
+        //     image.src="five.png";
+        // }else if(random==6){
+        //     image.src="six.png";
+        // }
+    // })
+
+    
+
+</script>
+
+</html>
